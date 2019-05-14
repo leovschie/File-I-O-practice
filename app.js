@@ -4,7 +4,14 @@ const inputFromTerminal = process.argv[2];
 const fileReader = require('./json-file-reader');
 
 //part2
-fileReader('./countries.json')
+fileReader('./countries.json', function (filename) {
+    for (let j = 0; j < filename.length; j++) {
+        if (filename[j].name === inputFromTerminal) {
+            console.log(`Country: ${filename[j].name}`);
+            console.log(`Top Level Domain: ${filename[j].topLevelDomain}`);
+        }
+    }
+})
 
 
 
